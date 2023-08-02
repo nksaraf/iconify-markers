@@ -3,9 +3,7 @@ import { createIconResponse } from "./createIconResponse.tsx";
 
 async function GET(request) {
   const searchParams = new URL(request.url).searchParams;
-  const [set, icon] = (searchParams.get("icon") ?? "mdi:account-box").split(
-    ":"
-  );
+  const [set, icon] = (searchParams.get("icon") ?? "ci:dot-05-xl").split(":");
   const icons = await fetch(
     `https://api.iconify.design/${set}.json?icons=${icon}`
   ).then((res) => res.json());

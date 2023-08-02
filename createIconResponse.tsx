@@ -1,6 +1,6 @@
 import React, { createElement } from "https://esm.sh/react@18.2.0";
 import { ImageResponse } from "https://deno.land/x/og_edge/mod.ts";
-import { parse } from "npm:node-html-parser";
+import { parse } from "https://esm.sh/node-html-parser";
 import { Marker } from "./Marker.tsx";
 
 function createElementFromNode(node) {
