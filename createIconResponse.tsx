@@ -20,7 +20,8 @@ export function createIconResponse(
   icon: string,
   fillColor: string,
   strokeColor: string,
-  strokeWidth: number
+  strokeWidth: number,
+  iconColor: string
 ) {
   const element = htmlToJSX(icon);
   return new ImageResponse(
@@ -30,7 +31,12 @@ export function createIconResponse(
         strokeColor={strokeColor}
         strokeWidth={strokeWidth}
       >
-        <div tw="absolute w-[128px] h-[128px] flex justify-center items-center text-white -top-4">
+        <div
+          tw="absolute w-[128px] h-[128px] flex justify-center items-center -top-4"
+          style={{
+            color: iconColor,
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="4em"

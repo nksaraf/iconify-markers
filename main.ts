@@ -14,11 +14,15 @@ async function GET(request) {
     ? `#${searchParams.get("stroke")}`
     : fillColor;
   const strokeWidth = Number(searchParams.get("strokeWidth") ?? 0.5);
+  const iconColor = searchParams.get("iconColor")
+    ? `#${searchParams.get("iconColor")}`
+    : "white";
   return createIconResponse(
     icons.icons[icon].body,
     fillColor,
     strokeColor,
-    strokeWidth
+    strokeWidth,
+    iconColor
   );
 }
 
