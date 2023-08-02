@@ -24,4 +24,4 @@ async function GET(request) {
   );
 }
 
-serve(GET);
+
