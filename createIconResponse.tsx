@@ -1,10 +1,10 @@
-import React, { createElement } from "https://esm.sh/react@18.2.0";
+import React, { createElement as h } from "https://esm.sh/react@18.2.0";
 import { ImageResponse } from "https://deno.land/x/og_edge/mod.ts";
 import { parse } from "https://esm.sh/node-html-parser";
 import { Marker } from "./Marker.tsx";
 
 function createElementFromNode(node) {
-  return createElement(
+  return h(
     node.tagName.toLowerCase(),
     node.attributes,
     node.childNodes.map(createElementFromNode)
