@@ -51,11 +51,6 @@ export function createIconResponse(
     {
       height: 128,
       width: 128,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "POST, OPTIONS, GET, PUT, DELETE",
-      },
     }
   );
 }
