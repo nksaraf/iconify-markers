@@ -21,9 +21,16 @@ export function createIconResponse(
   fillColor: string,
   strokeColor: string,
   strokeWidth: number,
-  iconColor: string
+  iconColor: string,
+  width: number,
+  height: number
 ) {
   const element = htmlToJSX(icon);
+  console.log(element, icon);
+  console.log(width, height);
+
+  const widthRem = 4;
+  const heightRem = widthRem * (height / width);
   return new ImageResponse(
     (
       <Marker
@@ -39,9 +46,9 @@ export function createIconResponse(
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="4em"
-            height="4em"
-            viewBox="0 0 24 24"
+            width={widthRem + "rem"}
+            height={heightRem + "rem"}
+            viewBox={`0 0 ${width} ${height}`}
           >
             {element}
           </svg>
