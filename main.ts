@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.155.0/http/server.ts";
 import { createIconResponse } from "./createIconResponse.tsx";
 
-async function GET(request) {
+serve(async (request) => {
   const searchParams = new URL(request.url).searchParams;
   const [set, icon] = (searchParams.get("icon") ?? "ci:dot-05-xl").split(":");
   const icons = await fetch(
@@ -22,6 +22,4 @@ async function GET(request) {
     strokeWidth,
     iconColor
   );
-}
-
-
+});
