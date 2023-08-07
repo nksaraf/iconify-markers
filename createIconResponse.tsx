@@ -68,3 +68,57 @@ export function createIconResponse(
     }
   );
 }
+
+export function createImgIconResponse(
+  img: string,
+  fillColor: string,
+  strokeColor: string,
+  strokeWidth: number,
+  iconColor: string,
+  width: number,
+  height: number
+) {
+  // const element = htmlToJSX(icon);
+  // console.log(element, icon);
+  console.log(width, height);
+
+  const widthRem = 4;
+  const heightRem = widthRem * (height / width);
+  return new ImageResponse(
+    (
+      <Marker
+        fillColor={fillColor}
+        strokeColor={strokeColor}
+        strokeWidth={strokeWidth}
+      >
+        <div
+          tw="absolute w-[128px] h-[128px] flex justify-center items-center -top-4"
+          style={{
+            color: iconColor,
+          }}
+        >
+          <img src={img} tw="w-[3rem] h-[3rem]" />
+          {/* <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={widthRem + "rem"}
+            height={heightRem + "rem"}
+            viewBox={`0 0 ${width} ${height}`}
+          >
+            {element}
+          </svg> */}
+        </div>
+      </Marker>
+    ),
+    {
+      height: 128,
+      width: 128,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers":
+          "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With",
+        "Access-Control-Allow-Methods": "POST, OPTIONS, GET, PUT, DELETE",
+      },
+    }
+  );
+}
