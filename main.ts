@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.155.0/http/server.ts";
 import {
   createIconResponse,
   createImgIconResponse,
+  createMarkerIconResponse,
 } from "./createIconResponse.tsx";
 
 serve(async (request) => {
@@ -19,6 +20,26 @@ serve(async (request) => {
     const height = 24;
     return createImgIconResponse(
       searchParams.get("img")!,
+      fillColor,
+      strokeColor,
+      strokeWidth,
+      iconColor,
+      width,
+      height
+    );
+  } else if (searchParams.get("marker")) {
+    const fillColor = `#${searchParams.get("fill") ?? "16A34A"}`;
+    const strokeColor = searchParams.get("stroke")
+      ? `#${searchParams.get("stroke")}`
+      : fillColor;
+    const strokeWidth = Number(searchParams.get("strokeWidth") ?? 0.5);
+    const iconColor = searchParams.get("iconColor")
+      ? `#${searchParams.get("iconColor")}`
+      : "white";
+    const width = 24;
+    const height = 24;
+    return createMarkerIconResponse(
+      searchParams.get("marker")!,
       fillColor,
       strokeColor,
       strokeWidth,
