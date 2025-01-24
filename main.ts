@@ -66,7 +66,7 @@ serve(async (request) => {
   metadata.height ??= icons.height ?? 24;
   
   return createIconResponse(
-    metadata.body
+    metadata.body,
     fillColor,
     strokeColor,
     strokeWidth,
