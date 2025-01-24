@@ -61,15 +61,17 @@ serve(async (request) => {
     ? `#${searchParams.get("iconColor")}`
     : "white";
 
-  const width = icons.icons[icon].width ?? icons.width ?? 24;
-  const height = icons.icons[icon].height ?? icons.height ?? 24;
+  const metadata: any = Object.values(icons.icons)[0]; 
+  metadata.width ??= icons.width ?? 24;
+  metadata.height ??= icons.height ?? 24;
+  
   return createIconResponse(
-    icons.icons[icon].body,
+    metadata.body
     fillColor,
     strokeColor,
     strokeWidth,
     iconColor,
-    width,
-    height
+    metadata.width,
+    metadata.height
   );
 });
